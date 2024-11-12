@@ -14,9 +14,8 @@ Grow as a Newsletter and forum for questions related to University
 - Register ✅
 - Main page❗🛠️ [Arthur]
 - Forum page❗🛠️ [Arthur]
-- News page🛠️ [Breno]
-- Implement SQL in all instances🛠️ [Breno]
+- Implement SQL in all instances🛠️ 
 - Update and Fix code for better reading ❗ [Daniel]
 - Comment code ❗ [Daniel]
-- Navigation bar items❗ [Breno]
+- Navigation bar items❗ 
 - Application host ✅  
