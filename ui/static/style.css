@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    background-color: #313131;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Titilium Web', sans-serif;
+    box-sizing: border-box;
+}
+
+
+/* Configuração do menu horizontal superior da página */
+
+.barra-navegacao {
+    display: flex;
+    justify-content: space-between;
+    background-color: #282828;
+    padding: 8px 45px;
+    -webkit-box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
+    -moz-box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
+    box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
+}
+
+.principal {
+    background-color: #313131;
+    height: 100%;
+    color: white;
+    min-height: 100vh; /* Garante que o contêiner principal ocupe toda a altura da tela */
+}
+
+
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info a {
+    color: white;
+    text-align: left;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.user-info p {
+    margin: auto;
+    padding-right: 10px;
+    color: white;
+}
+
+.i {
+    padding: 500px;
+}
+
+.user-icon {
+    font-size: 18px;
+}
+
+/* User menu style */
+
+.user-icon {
+    font-size: 22px;
+    color: white;
+
+}
+
+.user-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+.user-menu-config {
+    font-size: 18px;
+    background-color: #313131;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    -webkit-box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
+    box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
+    position: absolute;
+    margin-top: 0.3em;
+    margin-left: -3.5em;
+    display: none;
+}
+
+
+/* --------------- */
+
+.usr-stl a:hover {
+    color: #696363;
+    font-size: 20px;
+}
+
+.config-stl:hover {
+    color: #696363;
+    cursor: pointer;
+}
+
+.login-btn-trigger {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #646464;
+    border-radius: 0.4em;
+    -webkit-box-shadow: 2px 3px 5px 1px rgba(5, 5, 5, 1);
+    -moz-box-shadow: 2px 3px 5px 1px rgba(5, 5, 5, 1);
+    box-shadow: 2px 3px 5px 1px rgba(5, 5, 5, 1);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.login-btn-trigger:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* Config Menu style */
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 0.2em 0.4em;
+}
+
+
+.config-menu {
+    font-size: 22px;
+    color: white;
+
+}
+
+.config-menu:hover {
+    cursor: pointer;
+    transform: rotate(90deg);
+    transition-duration: 1s;
+}
+
+.menu-menu-config {
+    font-size: 18px;
+    background-color: #313131;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    -webkit-box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
+    box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
+    position: absolute;
+    margin-top: 0.3em;
+    margin-left: -5.5em;
+    display: none;
+}
+
+/*---------------------------------------- */
+
+/*Topic menu style */
+
+.topic-menu {
+    font-size: 25px;
+    background-color: #393350;
+    position: fixed;
+    /* Fixa o menu na parte inferior da tela */
+    bottom: 0;
+    /* Alinha o menu na parte inferior */
+    left: 0;
+    /* Alinha o menu à esquerda */
+    width: 100%;
+    /* Faz o menu ocupar toda a largura da tela */
+    height: 50%;
+    /* Ajuste a altura conforme necessário */
+    display: none;
+    /* Inicialmente oculto */
+    overflow-y: auto;
+    /* Adiciona rolagem vertical se o conteúdo exceder a altura */
+    z-index: 1000;
+    /* Garante que o menu fique acima de outros elementos */
+    padding: 1em;
+    /* Adiciona padding interno */
+    -webkit-box-shadow: -2px -8px 25px 18px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px -8px 25px 18px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px -8px 25px 18px rgba(0, 0, 0, 0.75);
+}
+
+.topic-menu .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.topic-menu .close-btn:hover {
+    color: #ff0000;
+}
+
+/*---------------------------------------- */
+
+
+
+/* Fim da config de menu horizontal superior da página */
+
+.switch:hover {
+    cursor: pointer;
+}
+
+
+/* Configuração do botão de adicionar topico novo */
+.topic-start {
+    float: right;
+    margin: 20px;
+    padding: 0px;
+}
+
+.topic-start:hover {
+    transform: scale(1.1);
+}
+
+
+/* Fim da configuração do botão de adicionar topico novo */
+
+.subjects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 250px;
+    margin-left: 300px;
+    box-sizing: 30px;
+}
+
+.user-trigger,
+.menu-trigger {
+    margin: 20px;
+}
+
+.escuro {
+    font-size: 20px;
+}

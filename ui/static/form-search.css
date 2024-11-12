@@ -1,0 +1,48 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #000;
+  font-family: 'Quicksand', sans-serif;
+  color: #fff;
+  text-align: center; 
+}
+
+
+form {
+  text-align: right;
+}
+
+input {
+  padding: 4px;
+  font-size: 1em;
+  font-family: 'Quicksand', sans-serif;
+  display: inline-block;
+  border: none;
+}
+
+input[type='submit'] {
+  background-color: #dab655;
+  color: #141d1f;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+input[type='radio'] {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+input[type='submit']:hover {
+  cursor: pointer;
+  background-color: #f0c85e;
+}
+
+pre {
+  text-align: left;
+}
