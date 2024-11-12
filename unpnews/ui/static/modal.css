@@ -1,0 +1,16 @@
+.modal-title{
+    color:black;
+}
+
+.modal-body{
+    color:black;
+}
+
+.topic-start{
+    background-color: grey;
+    border: none;
+}
+
+.topic-start:hover{
+    background-color: grey;
+}
