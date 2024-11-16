@@ -1,9 +1,12 @@
-# unpnews
-Unipe news is the most trusted and popular news publication and forum for University students
+## UNP - Unipe Newsletter and forum
 
+UNP is a website project for Unipe's University, including a simple forum ecosystem and news about the Uni environment 
+Project made by 2 students from Unipe University at our 2 stage, few bugs and a bad code expected
+Thats only the beginning of this Journey! 11.12/2024
 
 ## Objectives
 
+Studying and expand our knowledge in database and frontend projects
 Grow as a Newsletter and forum for questions related to University
 
 ## TODO!
@@ -12,10 +15,9 @@ Grow as a Newsletter and forum for questions related to University
 
 - Login ✅
 - Register ✅
-- Main page❗🛠️ [Arthur]
-- Forum page❗🛠️ [Arthur]
-- Implement SQL in all instances🛠️ 
-- Update and Fix code for better reading ❗ [Daniel]
-- Comment code ❗ [Daniel]
-- Navigation bar items❗ 
+- Main page✅
+- Forum page✅
+- Implement SQL in all instances🛠️ ❗
+- Comment code 🛠️
+- Navigation bar items✅
 - Application host ✅  

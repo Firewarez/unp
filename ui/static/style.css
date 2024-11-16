@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 html{
-    background-color: #313131;
+    background-color: white;
 }
 
 body {
@@ -19,15 +19,12 @@ body {
 .barra-navegacao {
     display: flex;
     justify-content: space-between;
-    background-color: #282828;
+    background-color: #1f2933;
     padding: 8px 45px;
-    -webkit-box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
-    -moz-box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
-    box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
 }
 
 .principal {
-    background-color: #313131;
+    background-color: white;
     height: 100%;
     color: white;
     min-height: 100vh; /* Garante que o contêiner principal ocupe toda a altura da tela */
@@ -79,7 +76,7 @@ body {
 
 .user-menu-config {
     font-size: 18px;
-    background-color: #313131;
+    background-color: #1f2933;
     border: 1px solid #ccc;
     border-radius: 0.3em;
     -webkit-box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
@@ -93,6 +90,10 @@ body {
 
 
 /* --------------- */
+
+a:hover{
+    text-decoration: none;
+}
 
 .usr-stl a:hover {
     color: #696363;
@@ -146,12 +147,9 @@ li {
 
 .menu-menu-config {
     font-size: 18px;
-    background-color: #313131;
+    background-color: white;
     border: 1px solid #ccc;
     border-radius: 0.3em;
-    -webkit-box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
-    -moz-box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
-    box-shadow: 3px 7px 5px 7px rgba(0, 0, 0, 0.55);
     position: absolute;
     margin-top: 0.3em;
     margin-left: -5.5em;

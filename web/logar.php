@@ -2,6 +2,44 @@
 <html lang="pt-br">
 <?php
 session_start();
+include('conexao.php');
+
+$erro = '';
+
+// Verifica se o formulário de login foi enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Recebe os dados do formulário
+  $login = mysqli_real_escape_string($conexao, $_POST['nome']);
+  $senha = $_POST['senha'];
+
+  // Consulta para verificar se o usuário existe no banco de dados
+  $sql = "SELECT * FROM usuarios WHERE user = '$login'";
+  $resultado = mysqli_query($conexao, $sql);
+
+  // Verifica se o usuário foi encontrado
+  if (mysqli_num_rows($resultado) == 1) {
+    $usuario = mysqli_fetch_assoc($resultado);
+
+    // Verifica se a senha informada corresponde à senha armazenada (usando password_verify)
+    if (password_verify($senha, $usuario['senha'])) {
+      // Se a senha estiver correta, cria a sessão para o usuário
+      $_SESSION['usuario_id'] = $usuario['id'];
+      $_SESSION['usuario_login'] = $usuario['user'];
+
+      // Redireciona para a página principal (index.php)
+      header("Location: ../index.php");
+      exit;  // Para garantir que o código abaixo não seja executado
+    } else {
+      // Senha incorreta
+      $erro = "E-mail ou senha incorretos.";
+    }
+  } else {
+    // Usuário não encontrado
+    $erro = "E-mail ou senha incorretos.";
+  }
+}
+
+
 ?>
 
 <head>
@@ -15,19 +53,7 @@ session_start();
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://kit.fontawesome.com/cbe388e870.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="../ui/js/scripts.js"></script>
-  <script class="Password-hidden-container">
-    function PasswordHidden() {
-      var senhaInput = document.getElementById('senha');
-      var PsBtnShow = document.getElementById('PsBtn');
-      if (senhaInput.type === 'password') {
-        senhaInput.type = 'text';
-        PsBtnShow.classList.replace('fa-eye', 'fa-eye-slash');
-      } else {
-        senhaInput.type = 'password';
-        PsBtnShow.classList.replace('fa-eye-slash', 'fa-eye');
-      }
-    }
-  </script>
+
 
 </head>
 
@@ -36,11 +62,12 @@ session_start();
     <div class="barra-navegacao">
       <!-- Navegação -->
       <div class="logo-img">
-        <a class="logo-btn" href="../index.php"><img id="logo" src="../ui/img/logo-icon.png" height="50" width="50"></a>
+        <a class="logo-btn" href="../index.php"><img id="logo" src="../ui/img/logo-icon-yellow.png" height="50"
+            width="50"></a>
       </div>
       <div class="search-container">
         <input type="text" id="search" class="search" placeholder="Pesquisar...">
-        <a class="btn-search"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a>
+        <a class="btn-search2"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a>
       </div>
 
       <!-- User Info main display -->
@@ -60,7 +87,7 @@ session_start();
         <?php else: ?>
           <!-- Guest Login/Register -->
           <div class="login-btn-trigger">
-            <a href="./web/logar.php">Entrar</a>
+            <a href="logar.php">Entrar</a>
           </div>
         <?php endif; ?>
         <div id="menu-trigger" class="menu-trigger">
@@ -77,7 +104,7 @@ session_start();
 
     <div class="form-container">
       <!-- Formulário de login -->
-      <form class="login-form" id="login-form" action="login.php" method="post">
+      <form class="login-form" id="login-form" action="" method="post">
         <div class="sair-btn">
           <i class="fa-solid fa-arrow-left-long sair" onclick="location.href='../index.php';"></i>
         </div>
@@ -92,6 +119,9 @@ session_start();
           <input type="password" class="password-box" id="senha" name="senha" placeholder="senha" required>
           <i class="fa-regular fa-eye HideBt" id="PsBtn" onclick="PasswordHidden()"></i>
         </div>
+        <?php if ($erro): ?>
+          <p style="color: red; aligm-itens: center;"><?php echo $erro; ?></p>
+        <?php endif; ?>
         <button class="Log-btn" type="submit">Entrar</button>
         <div class="sigin-link">
           Não possui conta? <a href="registro.php">Registre-se</a>

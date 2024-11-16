@@ -1,8 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
-include "validate-password.php";
-session_start();
+
+include('conexao.php');
+
+$log_erro = '';
+$senha_erro = '';
+$sucesso = '';
+
+$sql = "CREATE TABLE IF NOT EXISTS usuarios (
+  id INT(11) AUTO_INCREMENT PRIMARY KEY,
+  user VARCHAR(255) NOT NULL UNIQUE,
+  senha VARCHAR(255) NOT NULL
+)";
+
+if (mysqli_query($conexao, $sql)) {
+  // Tabela criada com sucesso ou já existe
+} else {
+  echo "Erro ao criar a tabela: " . mysqli_error($conexao);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Recebe os dados do formulário
+  $login = mysqli_real_escape_string($conexao, $_POST['nome']);
+  $senha = $_POST['senha'];
+
+  // Validação da senha
+  if (strlen($senha) < 8) {
+    $senha_erro = "A senha deve ter pelo menos 8 caracteres.";
+  } else {
+    // Criptografando a senha
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+    // Verificando se o e-mail já está cadastrado
+    $sql = "SELECT * FROM usuarios WHERE user = '$login'";
+    $resultado = mysqli_query($conexao, $sql);
+
+    if (mysqli_num_rows($resultado) > 0) {
+      $log_erro = "Este usuario já está registrado.";
+    } else {
+      // Inserindo o novo usuário no banco de dados
+      $sql = "INSERT INTO usuarios (user, senha) VALUES ('$login', '$senha_hash')";
+
+      if (mysqli_query($conexao, $sql)) {
+        // Se o cadastro for bem-sucedido, exibe a mensagem de sucesso e redireciona para o login
+        $sucesso = "Usuário registrado com sucesso! Você será redirecionado para a página de login.";
+        // Redireciona para a página de login
+        header("Location: logar.php");
+        exit;  // Garantir que o código abaixo não seja executado
+      }
+    }
+  }
+}
+
 ?>
 
 <head>
@@ -16,19 +66,7 @@ session_start();
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://kit.fontawesome.com/cbe388e870.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="../ui/js/scripts.js"></script>
-  <script class="Password-hidden-container">
-    function PasswordHidden() {
-      var senhaInput = document.getElementById('senha');
-      var PsBtnShow = document.getElementById('PsBtn');
-      if (senhaInput.type === 'password') {
-        senhaInput.type = 'text';
-        PsBtnShow.classList.replace('fa-eye', 'fa-eye-slash');
-      } else {
-        senhaInput.type = 'password';
-        PsBtnShow.classList.replace('fa-eye-slash', 'fa-eye');
-      }
-    }
-  </script>
+
 
 </head>
 
@@ -41,7 +79,7 @@ session_start();
       </div>
       <div class="search-container">
         <input type="text" id="search" class="search" placeholder="Pesquisar...">
-        <a class="btn-search"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a>
+        <a class="btn-search2"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a>
       </div>
 
       <!-- User Info main display -->
@@ -61,7 +99,7 @@ session_start();
         <?php else: ?>
           <!-- Guest Login/Register -->
           <div class="login-btn-trigger">
-            <a href="./web/logar.php">Entrar</a>
+            <a href="logar.php">Entrar</a>
           </div>
         <?php endif; ?>
         <div id="menu-trigger" class="menu-trigger">
@@ -77,21 +115,31 @@ session_start();
 
     <div class="form-container">
       <!-- Formulário de login -->
-      <form class="login-form" id="login-form" action="register.php" method="post">
+      <form class="login-form" id="login-form" action="" method="post">
         <div class="sair-btn">
           <i class="fa-solid fa-arrow-left-long sair" onclick="location.href='../index.php';"></i>
         </div>
         <h2>Register</h2>
+        <?php if ($sucesso): ?>
+          <p style="color: green;"><?php echo $sucesso; ?></p>
+        <?php endif; ?>
         <div class="txt-field">
           <label>Usuario:</label>
-          <input type="text" id="nome" name="nome" placeholder="Usuario" required>
+          <input type="text" id="nome" name="nome" value="<?php echo isset($_POST['nome']) ? $_POST['nome'] : ''; ?>"
+            placeholder="Usuario" required>
         </div>
+        <?php if ($log_erro): ?>
+          <p style="color: red;"><?php echo $log_erro; ?></p>
+        <?php endif; ?>
 
         <div class="password-container txt-field">
           <label>Senha:</label>
           <input type="password" class="password-box" id="senha" name="senha" placeholder="senha" required>
           <i class="fa-regular fa-eye HideBt" id="PsBtn" onclick="PasswordHidden()"></i>
         </div>
+        <?php if ($senha_erro): ?>
+          <p style="color: red;"><?php echo $senha_erro; ?></p>
+        <?php endif; ?>
         <button type="submit">Entrar</button>
         <div class="sigin-link">
           Já possui conta? <a href="logar.php">Faça Login</a>
@@ -116,24 +164,3 @@ session_start();
 </body>
 
 </html>
-
-
-<?php
-$user = "";
-$password = "";
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $user = $_POST["nome"];
-  $password = $_POST["senha"];
-  $valid = is_password($password);
-  if ($valid) {
-    header("Location: ../index.html");
-  } else {
-    echo "Password too weak";
-  }
-}
-
-
-
-?>

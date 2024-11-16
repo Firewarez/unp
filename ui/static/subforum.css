@@ -1,6 +1,6 @@
 
 .forumLink{
-    color: red;
+    color: #ffed00;
     font-weight: bolder;
     text-decoration: none;
 }
@@ -31,7 +31,7 @@
     padding: 10px;
     margin: 4px;
     border-radius: 5px;
-    background-color: #111314;
+    background-color: #1f2933;
 }
 
 .center{

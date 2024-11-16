@@ -23,7 +23,8 @@
     font-size: 15px;
     color: white;
 }
-.btn-search{
+/* configuração do botão de pesquisa da aba de login e registro */
+.btn-search2{
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -33,7 +34,21 @@
     font-size: 18px;
     text-align: center;
     line-height: 50px;
-    background-color: #454d66;
+    border-radius: 0 25px 25px 0;
+}
+
+/* configuração do botão de pesquisa da aba de pesquisa do index ( nao questione mas ta funcionando )*/ 
+.btn-search{
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    right: 0;
+    transform: translateY(-20%);
+    height: 100%;
+    width: 50px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
     border-radius: 0 25px 25px 0;
 }
 /* Fim da configuração da caixa de pesquisa */

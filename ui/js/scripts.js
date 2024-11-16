@@ -63,13 +63,28 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
-/* ---------------------------------------------- */
+  /* ---------------------------------------------- */
 
 
   /* Config topic menu script */
   const topicBtn = document.getElementById('topic-btn');
   const topicList = document.getElementById('topic-list');
   const closeTopicMenu = document.getElementById('close-topic-menu');
+  const modalBtn = document.getElementById('modal-btn');
+
+  if (modalBtn) {
+    modalBtn.addEventListener('click', function () {
+      if (!isAuthenticated) {
+        window.location.href = './web/logar.php';
+        console.log('Usuário não autenticado');
+      } else {
+        // Código para abrir a modal
+        console.log('Usuário autenticado');
+      }
+    });
+  }
+
+
 
   if (topicBtn && topicList) {
     topicBtn.addEventListener('click', function (event) {
@@ -94,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
       topicList.style.display = 'none';
     });
   }
-/* ---------------------------------------------- */
+  /* ---------------------------------------------- */
 
 
 });
