@@ -1,0 +1,29 @@
+.profile-info {
+    display: flex;
+    color: black;
+    border-radius: 1px solid black;
+    border: 1px solid black;
+    padding: 200px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.table-coluna{
+    display: flex;
+}
+.profile-posts {
+    margin: 2px;
+    color: white;
+}
+
+.profile-posts .conteudo,
+.profile-posts .replies,
+.profile-posts .last-reply {
+    padding: 5px;
+    margin: 2px;
+    background-color: #1f2933;
+}
+
+.profile-posts .conteudo{
+    flex: 70%;
+}

@@ -52,3 +52,33 @@
     border-radius: 0 25px 25px 0;
 }
 /* Fim da configuração da caixa de pesquisa */
+
+#search-results {
+    margin-top: 10px;
+    margin-left: 38%;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    background-color: white;
+    position: absolute;
+    border-radius: 10px;
+    z-index: 10;
+  }
+  
+  #search-results .search-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  #search-results .search-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .search-item{
+    background-color:  #1f2933;
+  }
+
+  .postsearch{
+    display: flex;
+  }

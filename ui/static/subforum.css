@@ -5,6 +5,10 @@
     text-decoration: none;
 }
 
+.news-column{
+    width: 1025px;
+}
+
 .container {
     margin: 20px;
     padding: 20px;

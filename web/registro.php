@@ -59,8 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unp - Registre-se</title>
-  <link rel="shortcut icon" type="imagex/png" href="../ui/img/logo-icon.png">
-  <link rel="stylesheet" type="text/css" href="../UI/STATIC/logstyle.css">
+  <link rel="shortcut icon" type="imagex/png" href="../ui/img/logo-icon-yellow.png">
+  <link rel="stylesheet" type="text/css" href="../ui/static/logstyle.css">
+  <link rel="stylesheet" type="text/css" href="../ui/static/footer.css">
   <link rel="stylesheet" type="text/css" href="../ui/static/style.css">
   <link rel="stylesheet" type="text/css" href="../ui/static/searchui.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -75,11 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="barra-navegacao">
       <!-- Navegação -->
       <div class="logo-img">
-        <a class="logo-btn" href="../index.php"><img id="logo" src="../ui/img/logo-icon.png" height="50" width="50"></a>
-      </div>
-      <div class="search-container">
-        <input type="text" id="search" class="search" placeholder="Pesquisar...">
-        <a class="btn-search2"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a>
+        <a class="logo-btn" href="../index.php"><img id="logo" src="../ui/img/logo-icon-yellow.png" height="50" width="50"></a>
       </div>
 
       <!-- User Info main display -->
@@ -102,50 +99,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="logar.php">Entrar</a>
           </div>
         <?php endif; ?>
-        <div id="menu-trigger" class="menu-trigger">
-          <i class="fa-solid fa-gear config-menu"></i>
-          <ul id="menu-list" class="menu-menu-config">
-            <li class="config-stl">Item 1</li>
-            <li class="config-stl">Item 2</li>
-            <li class="config-stl">Item 3</li>
-          </ul>
-        </div>
       </div>
     </div>
 
-    <div class="form-container">
-      <!-- Formulário de login -->
-      <form class="login-form" id="login-form" action="" method="post">
-        <div class="sair-btn">
-          <i class="fa-solid fa-arrow-left-long sair" onclick="location.href='../index.php';"></i>
-        </div>
-        <h2>Register</h2>
-        <?php if ($sucesso): ?>
-          <p style="color: green;"><?php echo $sucesso; ?></p>
-        <?php endif; ?>
-        <div class="txt-field">
-          <label>Usuario:</label>
-          <input type="text" id="nome" name="nome" value="<?php echo isset($_POST['nome']) ? $_POST['nome'] : ''; ?>"
-            placeholder="Usuario" required>
-        </div>
-        <?php if ($log_erro): ?>
-          <p style="color: red;"><?php echo $log_erro; ?></p>
-        <?php endif; ?>
+    <div class="main-login-container">
+      <div class="login-img-side">
+        <img src="https://i.ytimg.com/vi/DYmuCOBkB04/maxresdefault.jpg" alt="Imagem de login">
+      </div>
+      <div class="form-container">
+        <!-- Formulário de login -->
+        <form class="login-form" id="login-form" action="" method="post">
+          <div class="sair-btn">
+            <i class="fa-solid fa-arrow-left-long sair" onclick="location.href='../index.php';"></i>
+          </div>
+          <h2>Register</h2>
+          <?php if ($sucesso): ?>
+            <p style="color: green;"><?php echo $sucesso; ?></p>
+          <?php endif; ?>
+          <div class="txt-field">
+            <label>Usuario:</label>
+            <input type="text" id="nome" name="nome" value="<?php echo isset($_POST['nome']) ? $_POST['nome'] : ''; ?>"
+              placeholder="Usuario" required>
+          </div>
+          <?php if ($log_erro): ?>
+            <p style="color: red;"><?php echo $log_erro; ?></p>
+          <?php endif; ?>
 
-        <div class="password-container txt-field">
-          <label>Senha:</label>
-          <input type="password" class="password-box" id="senha" name="senha" placeholder="senha" required>
-          <i class="fa-regular fa-eye HideBt" id="PsBtn" onclick="PasswordHidden()"></i>
-        </div>
-        <?php if ($senha_erro): ?>
-          <p style="color: red;"><?php echo $senha_erro; ?></p>
-        <?php endif; ?>
-        <button type="submit">Entrar</button>
-        <div class="sigin-link">
-          Já possui conta? <a href="logar.php">Faça Login</a>
-        </div>
+          <div class="password-container txt-field">
+            <label>Senha:</label>
+            <input type="password" class="password-box" id="senha" name="senha" placeholder="senha" required>
+            <i class="fa-regular fa-eye HideBt" id="PsBtn" onclick="PasswordHidden()"></i>
+          </div>
+          <?php if ($senha_erro): ?>
+            <p style="color: red;"><?php echo $senha_erro; ?></p>
+          <?php endif; ?>
+          <button type="submit">Entrar</button>
+          <div class="sigin-link">
+            Já possui conta? <a href="logar.php">Faça Login</a>
+          </div>
 
-      </form>
+        </form>
+      </div>
     </div>
   </div>
   <!-- Check de erro de login -->
@@ -161,6 +155,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
   ?>
   </div>
+  <footer>
+    <div class="footer-content">
+      <div class="descriptionfooter">
+        <p>UNP Forum é um site de forum para alunos da UNP compartilharem informações e discutirem sobre diversos assuntos.</p>
+      </div>
+        <div class="contact">
+            <a href="danielcostacarvalhomartins06@gmail.com">Email ✉ </a>
+        </div>
+    </div>
+  </footer>
 </body>
 
 </html>

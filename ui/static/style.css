@@ -23,6 +23,8 @@ body {
     padding: 8px 45px;
 }
 
+
+
 .principal {
     background-color: white;
     height: 100%;
@@ -63,7 +65,7 @@ body {
 /* User menu style */
 
 .user-icon {
-    font-size: 22px;
+    font-size: 30px;
     color: white;
 
 }
@@ -240,4 +242,99 @@ li {
 
 .escuro {
     font-size: 20px;
+}
+
+/* Configuração dos posts */
+
+
+.table-head{
+    display: flex;
+}
+
+.table-head div{
+    padding: 5px;
+    margin: 2px;
+    background-color: #1f2933;
+    font-weight: bold;
+}
+
+.table-head .status{
+    flex: 5%;
+}
+
+.table-head .objetivos{
+    flex: 70%;
+}
+
+.table-head .replies{
+    flex: 10%;
+}
+
+.table-head .last-reply{
+    flex: 20%;
+}
+
+.table-row{
+    display: flex;
+}
+
+.table-row .status, .table-row .objetivos, .table-row .replies, .table-row .last-reply{
+    padding: 5px;
+    margin: 2px;
+   background-color:  #1f2933;
+}
+
+.table-row .status{
+    flex: 5%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.table-row .objetivos{
+    flex: 70%;
+}
+
+.table-row .replies{
+    flex: 10%;
+}
+
+.table-row .last-reply{
+    flex: 20%;
+}
+
+/* Fim da configuração dos posts */
+
+/* Configuração da paginação do posts */
+.pagination{
+    padding: 5px;
+    font-size: 15px;
+    text-align: center;
+    margin: 2px;
+    background-color: #1f2933;
+}
+
+.pagination a{
+    color: #ffffff;
+    margin-inline: 5px;
+    padding: 5px 10px;
+    border: solid 0.5px white;
+}
+
+.pagination p{
+    top: 50%;
+}
+
+.pagination a:hover{
+    opacity: 0.5;
+}
+
+.navigate{
+    display: flex;
+    padding: 5px;
+    margin: 2px;
+    background-color: #1f2933;
+}
+
+.navigate a{
+    font-weight: bold;
 }

@@ -39,15 +39,39 @@ form .text-field {
     color: #777777;
 }
 
+.main-login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.login-img-side{
+    height: 295px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-img-side img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px ;
+}
+
 #login-form {
     background-color: #f2f2f2;
     padding: 20px;
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     -webkit-box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
     -moz-box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
     box-shadow: 4px 14px 76px -7px rgba(0, 0, 0, 0.77);
     max-width: 310px;
-    margin: 20px auto;
+    margin: 200px auto;
 }
 
 #login-form label {

@@ -34,7 +34,7 @@ html{
 }
 
 .horizontal-nav a:hover {
-    background-color: #ddd;
+    background-color: white;
     transform: scale(1.1);
     color: black;
 }
